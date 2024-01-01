@@ -99,7 +99,7 @@ app.delete("api/delete/:id",async(req,res)=>{
 const path = require('path');
 app.use(express.static(path.join(__dirname,'./client/build')));
 app.get('/*',function(req,res){
-    res.semdFile(path.join(__dirname,'./client/build/index.html'));
+    res.sendFile(path.join(__dirname,'./client/build/index.html'));
 });
 
 

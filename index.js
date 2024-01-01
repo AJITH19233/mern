@@ -97,9 +97,9 @@ app.delete("api/delete/:id",async(req,res)=>{
 })
 
 const path = require('path');
-app.use(express.static(path.join(__dirname,'./client/build')));
+app.use(express.static(path.join(__dirname,'./build')));
 app.get('/*',function(req,res){
-    res.sendFile(path.join(__dirname,'./client/build/index.html'));
+    res.sendFile(path.join(__dirname,'./build/index.html'));
 });
 
 

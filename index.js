@@ -6,6 +6,9 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
+const path=require('path');
+app.use(express.static(path.join(__dirname+'/build')));
+
 const PORT  = process.env.PORT || 8080 
 mongoose.connect("mongodb+srv://ajith1323:Achanamma@cluster0.3jql3om.mongodb.net/Vendors?retryWrites=true&w=majority")
 .then(()=>{
@@ -96,8 +99,7 @@ app.delete("api/delete/:id",async(req,res)=>{
     res.send({success : true, message : "data delete successfully", data : data})
 })
 
-const path = require('path');
-app.use(express.static(path.join(__dirname,'./build')));
+
 app.get('/*',function(req,res){
     res.sendFile(path.join(__dirname,'./build/index.html'));
 });
